@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { Account } from '../../modes/account';
 import { AccountService } from '../../services/account-service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-account-list',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './account-list.html',
   styleUrl: './account-list.css'
 })

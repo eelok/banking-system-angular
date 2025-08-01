@@ -3,6 +3,6 @@
     <div *ngFor="let account of accounts">
         <h3>{{account.fullName}}</h3>
         <p>{{account.iban}}</p>
-        <a >Account details</a>
+        <a [routerLink]="['/accounts', account.id]">Account details</a>
     </div>
 </div>

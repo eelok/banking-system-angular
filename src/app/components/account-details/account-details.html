@@ -1,0 +1,9 @@
+<p>account-details works!</p>
+<div *ngIf="account">
+    <h3>{{account.fullName}}</h3>
+    <p>IBAN: {{account.iban}}</p>
+    <p>Currency: {{account.currency}}</p>
+    <p>Balance: {{account.balance}}</p>
+    <p>Withdraw Limit Per Day: {{account.withdrawPerDayLimit}}</p>
+</div>
+
