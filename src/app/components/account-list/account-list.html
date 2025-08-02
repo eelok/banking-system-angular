@@ -1,8 +1,17 @@
 <div>
     <h2>Account List => Java</h2>
-    <div *ngFor="let account of accounts">
-        <h3>{{account.fullName}}</h3>
-        <p>{{account.iban}}</p>
-        <a [routerLink]="['/accounts', account.id]">Account details</a>
+    <div *ngIf = "loading">
+        <p>Loading accounts....</p>
+    </div>
+
+    <div *ngIf = "!loading && errorMessage" style="color: red; padding: 10px; border: 1px solid red;">
+        <p>Error: {{errorMessage}}</p>
+    </div>
+    <div *ngIf ="!loading && !errorMessage && accounts.length > 0">
+        <div *ngFor="let account of accounts">
+            <h3>{{account.fullName}}</h3>
+            <p>{{account.iban}}</p>
+            <a [routerLink]="['/accounts', account.id]">Account details</a>
+        </div>
     </div>
 </div>

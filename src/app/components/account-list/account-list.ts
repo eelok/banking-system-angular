@@ -14,13 +14,26 @@ import { RouterLink } from '@angular/router';
 export class AccountList implements OnInit {
 
   accounts: Account[] = [];
+  errorMessage = "";
+  loading = false;
+
 
   constructor(private accountService: AccountService){}
 
   ngOnInit(): void {
-    this.accountService.getAccountList().subscribe(account => {
-      this.accounts = account;
-    });
+    this.loading = true;
+    this.errorMessage = "";
+       this.accountService.getAccountList().subscribe({
+        next: (accounts => {
+          this.accounts = accounts;
+          this.loading = false;
+        }),
+        error: (error => {
+          console.log('Error occurred: ', error);
+          this.loading = false;
+          this.errorMessage = error.error?.message || "api is failed"
+        })
+       });
   }
   
 }
