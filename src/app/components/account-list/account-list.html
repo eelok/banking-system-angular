@@ -4,7 +4,8 @@
         <p>Loading accounts....</p>
     </div>
 
-    <div *ngIf = "!loading && errorMessage" style="color: red; padding: 10px; border: 1px solid red;">
+    <div *ngIf = "!loading && errorMessage" 
+        style="color: red; padding: 10px; border: 1px solid red;">
         <p>Error: {{errorMessage}}</p>
     </div>
     <div *ngIf ="!loading && !errorMessage && accounts.length > 0">
