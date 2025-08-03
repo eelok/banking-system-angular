@@ -17,5 +17,19 @@
             name="fullName"
         />
     </label>
+    <label for="currency">
+        Currency:
+        <select 
+            name="currency" 
+            id="currency" 
+            [(ngModel)]="selectedCurrency"
+        >
+            <option value="">Select a currency</option>
+            <option 
+                *ngFor = "let curr of availableCurrencies" 
+                [value]="curr">{{curr}}
+            </option>
+        </select>
+    </label>
     <button type="submit">Submit</button>
 </form>
