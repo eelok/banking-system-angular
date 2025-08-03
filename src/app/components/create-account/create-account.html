@@ -1,0 +1,21 @@
+<h3>Create Account: </h3>
+<div *ngIf="errorMessage"
+        style="color: red;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-right: 40px;"
+>
+        {{errorMessage}}
+</div>
+<form (ngSubmit)=createAccount()>
+    <label for="fullName">
+        Your full name:
+        <input 
+            id="fullName" 
+            type="text" 
+            [(ngModel)]="fullName"
+            name="fullName"
+        />
+    </label>
+    <button type="submit">Submit</button>
+</form>
