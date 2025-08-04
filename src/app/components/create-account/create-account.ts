@@ -4,6 +4,7 @@ import { AccountService } from '../../services/account-service';
 import { Account } from '../../modes/account';
 import { CommonModule } from '@angular/common';
 import { availableCurrencies } from './sharedConst';
+import { AccountRequest } from '../../modes/AccountRequest';
 
 @Component({
   selector: 'app-create-account',
@@ -31,17 +32,15 @@ export class CreateAccount {
       return;
     }
     console.log("selecte currence", this.selectedCurrency);
-    const newAccount: Account = {
+    const newAccount: AccountRequest = {
       fullName: this.fullName,
-      iban: "new iban DE 141s",
-      currency: this.selectedCurrency,
-      balance: 1000,
-      withdrawPerDayLimit: 2500
+      currency: this.selectedCurrency
     }
     this.accountService.createAccount(newAccount).subscribe({
       next: (response) => {
         console.log(response);
           this.fullName = "";
+          this.selectedCurrency = "";
       },
       error: (error) => {
         console.log("Error message:", error.error.message);

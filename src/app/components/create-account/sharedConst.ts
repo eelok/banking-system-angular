@@ -1,3 +1,3 @@
 
 
-export const availableCurrencies = ['EURO', 'CHF', 'USE', "JOPA"];
+export const availableCurrencies = ['EURO', 'CHF', 'USD'];
